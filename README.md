@@ -170,13 +170,13 @@ Example input:
   "MA50": 14850,
   "Volatility": 0.014
 }
-
+```
 Swagger UI:
 
 http://localhost:8000/docs
 
 
-7. Docker Deployment
+### 7. Docker Deployment
 
 This project is fully containerized.
 
