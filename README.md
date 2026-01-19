@@ -180,16 +180,16 @@ http://localhost:8000/docs
 
 This project is fully containerized.
 
-Build the Docker image
+### Build the Docker image
 docker build -t nasdaq-regime-api .
 
-Run the container
+### Run the container
 docker run -d -p 8000:8000 nasdaq-regime-api
 
-Access the API
+### Access the API
 http://localhost:8000/docs
 
-📂 Repository Structure
+### 📂 Repository Structure
 nasdaq-market-regime/
 │
 ├── data/
@@ -212,7 +212,7 @@ nasdaq-market-regime/
 ├── requirements.txt
 └── README.md
 
-🧪 Run Locally (Without Docker)
+### 🧪 Run Locally (Without Docker)
 
 Create a virtual environment:
 
@@ -220,7 +220,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 
-Install dependencies:
+### Install dependencies:
 
 pip install -r requirements.txt
 
@@ -230,15 +230,15 @@ Start the API:
 python api.py
 
 
-API available at:
+### API available at:
 
 http://127.0.0.1:8000/docs
 
-🐳 Run Using Docker (Recommended)
+### 🐳 Run Using Docker (Recommended)
 docker build -t nasdaq-regime-api .
 docker run -d -p 8000:8000 nasdaq-regime-api
 
-✅ Key Skills Demonstrated
+## ✅ Key Skills Demonstrated
 
 Financial time-series analysis
 
@@ -252,10 +252,4 @@ FastAPI model serving
 
 Docker containerization
 
-## 🔮 Limitations & Future Work
 
-Sentiment features are pre-computed (no FinBERT used in this project)
-
-Real-time NLP sentiment analysis could be added
-
-More advanced temporal models could be explored
