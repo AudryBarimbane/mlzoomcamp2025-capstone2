@@ -55,7 +55,7 @@ Daily historical price data for the NASDAQ-100 index.
 ### News Sentiment Data
 Aggregated sentiment indicators derived from financial news sources.  
 Sentiment features are **pre-computed numerical values** (no NLP model is trained in this project).
-
+https://www.kaggle.com/datasets/enaa0o0/nasdaq-news-sentiment
 ### Dataset columns
 
 date,
