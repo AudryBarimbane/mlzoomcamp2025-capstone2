@@ -1,178 +1,161 @@
-NASDAQ-100 Market Regime Detection Using Price Indicators and News Sentiment Features
-
+# NASDAQ-100 Market Regime Detection Using Price Indicators and News Sentiment Features
 Midterm CAPSTONE Project – MLZoomcamp 2025
 
-📌 Overview
+---
 
-This project applies Machine Learning and Deep Learning techniques to financial market data from the NASDAQ-100 index to detect daily market regimes (Bear, Sideways, Bull).
+## 📌 Overview
 
-The project follows the complete MLZoomcamp end-to-end pipeline:
+This project applies **Machine Learning and Deep Learning** techniques to financial market data from the **NASDAQ-100 index** to detect daily **market regimes** (*Bear*, *Sideways*, *Bull*).
 
-Pick a problem & dataset
+The project follows the complete **MLZoomcamp end-to-end pipeline**:
 
-Describe how ML helps
-
-Prepare data & perform Exploratory Data Analysis (EDA)
-
-Train multiple models and select the best one
-
-Export the trained model
-
-Build a prediction pipeline
-
-Serve predictions using FastAPI
-
-Deploy the application with Docker
+- Pick a problem & dataset  
+- Describe how ML helps  
+- Prepare data & perform Exploratory Data Analysis (EDA)  
+- Train multiple models and select the best one  
+- Export the trained model  
+- Build a prediction pipeline  
+- Serve predictions using FastAPI  
+- Deploy the application with Docker  
 
 This repository includes:
 
-Market and sentiment datasets
+- Market and sentiment datasets  
+- Jupyter notebooks (EDA, ML training, LSTM experiments, prediction)  
+- Python scripts (`train.py`, `predict.py`, `api.py`)  
+- Trained model files  
+- Dockerfile for deployment  
 
-Jupyter notebooks (EDA, ML training, LSTM experiments, prediction)
+---
 
-Python scripts (train.py, predict.py, api.py)
+## 🎯 1. Problem Definition
 
-Trained model files
+Financial markets move through different **regimes** depending on price dynamics, volatility, and external information such as financial news.
 
-Dockerfile for deployment
+The goal of this project is to build a **multi-class classification model** that predicts the **next-day market regime** of the NASDAQ-100 index:
 
-🎯 1. Problem Definition
-
-Financial markets move through different regimes depending on price dynamics, volatility, and external information such as financial news.
-
-The goal of this project is to build a multi-class classification model that predicts the next-day market regime of the NASDAQ-100 index:
-
-Bear market
-
-Sideways market
-
-Bull market
+- **Bear**
+- **Sideways**
+- **Bull**
 
 Potential applications include:
 
-Market regime monitoring
+- Market regime monitoring  
+- Risk management  
+- Trading strategy adaptation  
+- Financial decision-support systems  
 
-Risk management
+---
 
-Trading strategy adaptation
+## 📚 2. Dataset
 
-Financial decision-support systems
-
-📚 2. Dataset
-Market Data
-
+### Market Data
 Daily historical price data for the NASDAQ-100 index.
 
-News Sentiment Data
+### News Sentiment Data
+Aggregated sentiment indicators derived from financial news sources.  
+Sentiment features are **pre-computed numerical values** (no NLP model is trained in this project).
 
-Aggregated sentiment indicators derived from financial news sources.
-Sentiment features are pre-computed numerical values (no NLP model is trained in this project).
+### Dataset columns
 
-Dataset columns
 date,
 Open, High, Low, Close, Volume,
 avg_sentiment, sentiment_std, news_count,
 Return, MA20, MA50, Volatility,
 Target
 
-All features are numerical except date.
 
-📁 Dataset location:
+
+All features are numerical except `date`.
+
+Dataset location:
 
 data/processed/nasdaq100_ml_dataset.csv
-🔎 3. Exploratory Data Analysis (EDA)
 
-EDA is performed in nasdaq_analysis.ipynb and includes:
 
-Data inspection and cleaning
+---
 
-Missing value analysis
+## 🔎 3. Exploratory Data Analysis (EDA)
 
-Feature distribution analysis
+EDA is performed in **`nasdaq_analysis.ipynb`** and includes:
 
-Correlation heatmaps
+- Market data inspection  
+- Missing value analysis  
+- Feature distribution analysis  
+- Correlation heatmaps  
+- Market regime distribution  
+- Relationship between sentiment and price-based indicators  
 
-Market regime distribution
+This step ensures data quality and model reliability.
 
-Relationship between sentiment and price-based indicators
+---
 
-The analysis shows that price-based technical indicators and volatility are the strongest predictors, while sentiment features provide complementary information.
+## 🧠 4. Model Training
 
-🧠 4. Model Training
-Models evaluated
+### Models evaluated
 
-Classical Machine Learning
+**Classical Machine Learning**
+- Logistic Regression (**best performing model**)  
+- Random Forest  
+- XGBoost  
 
-Logistic Regression (best performing model)
+**Deep Learning (Experimental)**
+- LSTM (Long Short-Term Memory)
 
-Random Forest
+### Evaluation metrics
+- Accuracy  
+- F1-score (macro)
 
-XGBoost
+Logistic Regression outperformed LSTM on this structured tabular dataset and was selected as the final model.
 
-Deep Learning (Experimental)
-
-LSTM (Long Short-Term Memory)
-
-Evaluation metrics
-
-Accuracy
-
-F1-score (macro)
-
-Logistic Regression achieved the best balance between performance, stability, and interpretability on structured tabular data.
-
-Training notebooks and scripts
-
-train.ipynb
-
-train.py
+### Training files
+- `train.ipynb`
+- `train.py`
 
 LSTM experiments:
+- `train_lstm.ipynb`
 
-train_lstm.ipynb
-
-Exported model
+### Exported model
 models/best_ml_model.pkl
-🔮 5. Prediction Pipeline
+
+
+---
+
+## 🔮 5. Prediction Pipeline
 
 Available in:
+- `predict.ipynb`
+- `predict.py`
 
-predict.ipynb
+Prediction workflow:
 
-predict.py
-
-Prediction workflow
-
-Load trained model
-
-Validate feature order
-
-Preprocess and scale inputs
-
-Generate market regime prediction
+- Load trained model  
+- Validate feature order  
+- Preprocess and scale inputs  
+- Generate market regime prediction  
 
 Model output:
+- **Bear**
+- **Sideways**
+- **Bull**
 
-Bear
+---
 
-Sideways
+## 🚀 6. FastAPI Web Service
 
-Bull
+The file **`api.py`** provides a real-time prediction API.
 
-🚀 6. FastAPI Web Service
+### Endpoints
 
-The api.py file exposes the model as a REST API.
-
-Endpoints
-GET /
-
+#### `GET /`
 Health check endpoint.
 
-POST /predict
-
+#### `POST /predict`
 Accepts JSON input and returns the predicted market regime.
 
-Example input
+Example input:
+
+```json
 {
   "Open": 15000,
   "High": 15200,
@@ -187,21 +170,24 @@ Example input
   "MA50": 14850,
   "Volatility": 0.014
 }
-Swagger UI
 
-👉 http://localhost:8000/docs
+Swagger UI:
 
-🐳 7. Docker Deployment
+http://localhost:8000/docs
+
+
+7. Docker Deployment
 
 This project is fully containerized.
 
 Build the Docker image
 docker build -t nasdaq-regime-api .
+
 Run the container
 docker run -d -p 8000:8000 nasdaq-regime-api
-Access the API
 
-👉 http://localhost:8000/docs
+Access the API
+http://localhost:8000/docs
 
 📂 Repository Structure
 nasdaq-market-regime/
@@ -225,21 +211,33 @@ nasdaq-market-regime/
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
+
 🧪 Run Locally (Without Docker)
-Create virtual environment
+
+Create a virtual environment:
+
 python3 -m venv venv
 source venv/bin/activate
-Install dependencies
+
+
+Install dependencies:
+
 pip install -r requirements.txt
-Start the API
+
+
+Start the API:
+
 python api.py
 
+
 API available at:
-👉 http://127.0.0.1:8000/docs
+
+http://127.0.0.1:8000/docs
 
 🐳 Run Using Docker (Recommended)
 docker build -t nasdaq-regime-api .
 docker run -d -p 8000:8000 nasdaq-regime-api
+
 ✅ Key Skills Demonstrated
 
 Financial time-series analysis
@@ -253,3 +251,11 @@ Deep Learning experimentation (LSTM)
 FastAPI model serving
 
 Docker containerization
+
+🔮 Limitations & Future Work
+
+Sentiment features are pre-computed (no FinBERT used in this project)
+
+Real-time NLP sentiment analysis could be added
+
+More advanced temporal models could be explored
