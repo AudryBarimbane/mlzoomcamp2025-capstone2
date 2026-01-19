@@ -252,7 +252,7 @@ FastAPI model serving
 
 Docker containerization
 
-🔮 Limitations & Future Work
+## 🔮 Limitations & Future Work
 
 Sentiment features are pre-computed (no FinBERT used in this project)
 
