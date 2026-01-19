@@ -10,7 +10,7 @@ The project follows the complete MLZoomcamp end-to-end pipeline:
 
 Pick a problem & dataset
 
-Describe how Machine Learning helps
+Describe how ML helps
 
 Prepare data & perform Exploratory Data Analysis (EDA)
 
@@ -20,27 +20,27 @@ Export the trained model
 
 Build a prediction pipeline
 
-Package the model as a FastAPI service
+Serve predictions using FastAPI
 
-Deploy the service using Docker
+Deploy the application with Docker
 
 This repository includes:
 
-Processed market and sentiment datasets
+Market and sentiment datasets
 
-Jupyter notebooks (EDA, training, LSTM experiments, prediction)
+Jupyter notebooks (EDA, ML training, LSTM experiments, prediction)
 
 Python scripts (train.py, predict.py, api.py)
 
-Trained model file
+Trained model files
 
 Dockerfile for deployment
 
 🎯 1. Problem Definition
 
-Financial markets evolve through different market regimes, influenced by price movements, volatility, and external information such as financial news.
+Financial markets move through different regimes depending on price dynamics, volatility, and external information such as financial news.
 
-The objective of this project is to build a market regime classification system for the NASDAQ-100 index, predicting the next-day regime as:
+The goal of this project is to build a multi-class classification model that predicts the next-day market regime of the NASDAQ-100 index:
 
 Bear market
 
@@ -48,30 +48,27 @@ Sideways market
 
 Bull market
 
-This system can be used for:
+Potential applications include:
 
 Market regime monitoring
 
 Risk management
 
-Strategy adaptation
+Trading strategy adaptation
 
-Decision-support tools in finance
+Financial decision-support systems
 
 📚 2. Dataset
-📈 Market Data
+Market Data
 
-Source: NASDAQ-100 historical price data
+Daily historical price data for the NASDAQ-100 index.
 
-Frequency: Daily
+News Sentiment Data
 
-📰 News Sentiment Data
+Aggregated sentiment indicators derived from financial news sources.
+Sentiment features are pre-computed numerical values (no NLP model is trained in this project).
 
-Aggregated financial news sentiment features
-
-Sentiment scores are pre-computed and provided as numerical inputs
-
-📊 Final dataset columns
+Dataset columns
 date,
 Open, High, Low, Close, Volume,
 avg_sentiment, sentiment_std, news_count,
@@ -80,41 +77,39 @@ Target
 
 All features are numerical except date.
 
-📁 Stored in:
+📁 Dataset location:
 
 data/processed/nasdaq100_ml_dataset.csv
 🔎 3. Exploratory Data Analysis (EDA)
 
 EDA is performed in nasdaq_analysis.ipynb and includes:
 
-Market data inspection
+Data inspection and cleaning
 
 Missing value analysis
 
 Feature distribution analysis
 
-Correlation analysis
+Correlation heatmaps
 
 Market regime distribution
 
-Relationship between sentiment and returns
+Relationship between sentiment and price-based indicators
 
-Volatility behavior across market regimes
-
-EDA confirms that volatility and price-based indicators are strong discriminative features, while sentiment features provide complementary contextual information.
+The analysis shows that price-based technical indicators and volatility are the strongest predictors, while sentiment features provide complementary information.
 
 🧠 4. Model Training
 Models evaluated
 
-Classical Machine Learning (Baselines):
+Classical Machine Learning
 
-Logistic Regression (best performance)
+Logistic Regression (best performing model)
 
 Random Forest
 
 XGBoost
 
-Deep Learning (Comparative):
+Deep Learning (Experimental)
 
 LSTM (Long Short-Term Memory)
 
@@ -124,23 +119,20 @@ Accuracy
 
 F1-score (macro)
 
-F1-macro is used to account for class imbalance.
+Logistic Regression achieved the best balance between performance, stability, and interpretability on structured tabular data.
 
-Training workflow available in:
+Training notebooks and scripts
 
 train.ipynb
 
 train.py
 
-Deep learning experiments are conducted in:
+LSTM experiments:
 
 train_lstm.ipynb
 
-Exported file
+Exported model
 models/best_ml_model.pkl
-
-The Logistic Regression model is selected as the final model due to superior performance and robustness on structured tabular data.
-
 🔮 5. Prediction Pipeline
 
 Available in:
@@ -151,15 +143,15 @@ predict.py
 
 Prediction workflow
 
-Load the trained model
+Load trained model
 
 Validate feature order
 
-Preprocess input data
+Preprocess and scale inputs
 
 Generate market regime prediction
 
-Predictions return one of:
+Model output:
 
 Bear
 
@@ -169,7 +161,7 @@ Bull
 
 🚀 6. FastAPI Web Service
 
-The file api.py provides a real-time prediction API.
+The api.py file exposes the model as a REST API.
 
 Endpoints
 GET /
@@ -203,11 +195,11 @@ Swagger UI
 
 This project is fully containerized.
 
-Step 1 — Build the Docker image
+Build the Docker image
 docker build -t nasdaq-regime-api .
-Step 2 — Run the container
+Run the container
 docker run -d -p 8000:8000 nasdaq-regime-api
-Step 3 — Access the API
+Access the API
 
 👉 http://localhost:8000/docs
 
@@ -233,3 +225,31 @@ nasdaq-market-regime/
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
+🧪 Run Locally (Without Docker)
+Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
+Install dependencies
+pip install -r requirements.txt
+Start the API
+python api.py
+
+API available at:
+👉 http://127.0.0.1:8000/docs
+
+🐳 Run Using Docker (Recommended)
+docker build -t nasdaq-regime-api .
+docker run -d -p 8000:8000 nasdaq-regime-api
+✅ Key Skills Demonstrated
+
+Financial time-series analysis
+
+Feature engineering
+
+Machine Learning model comparison
+
+Deep Learning experimentation (LSTM)
+
+FastAPI model serving
+
+Docker containerization
