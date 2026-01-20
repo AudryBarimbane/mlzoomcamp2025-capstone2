@@ -1,5 +1,5 @@
 # NASDAQ-100 Market Regime Detection Using Price Indicators and News Sentiment Features
-Midterm CAPSTONE Project – MLZoomcamp 2025
+CAPSTONE 2 Project – MLZoomcamp 2025
 
 ---
 
