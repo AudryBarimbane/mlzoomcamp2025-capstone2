@@ -360,9 +360,10 @@ API available at:
 👉 http://127.0.0.1:8000/docs
 
 ## 🐳 Run Using Docker (Recommended)
-
-docker build -t nasdaq-regime-api .
-docker run -d -p 8000:8000 nasdaq-regime-api
+✔ Build the Docker image
+- docker build -t nasdaq-regime-api .
+✔ Run the container
+- docker run -d -p 8000:8000 nasdaq-regime-api
 
 👉 http://localhost:8000/docs
 
