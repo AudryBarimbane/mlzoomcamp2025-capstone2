@@ -362,6 +362,7 @@ API available at:
 ## 🐳 Run Using Docker (Recommended)
 ✔ Build the Docker image
 - docker build -t nasdaq-regime-api .
+  
 ✔ Run the container
 - docker run -d -p 8000:8000 nasdaq-regime-api
 
