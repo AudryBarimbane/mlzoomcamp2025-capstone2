@@ -344,8 +344,8 @@ All commands should be run inside Ubuntu (WSL).
 
 ### 2️⃣ Create virtual environment
 
-python3 -m venv venv
-source venv/bin/activate
+- python3 -m venv venv
+- source venv/bin/activate
 
 
 ### 3️⃣ Install dependencies
