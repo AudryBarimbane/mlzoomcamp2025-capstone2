@@ -1,5 +1,5 @@
 # NASDAQ-100 Market Regime Prediction  
-**Midterm CAPSTONE Project – MLZoomcamp 2025**
+** CAPSTONE 2 Project – MLZoomcamp 2025**
 
 ---
 
