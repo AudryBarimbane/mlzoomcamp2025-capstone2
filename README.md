@@ -299,54 +299,36 @@ docker run -d -p 8000:8000 nasdaq-regime-api
 
 👉 http://localhost:8000/docs
 
-MLzoomcamp_Midterm2025/<br>
-│
-├── data/ <br>
-│
-│   ├── raw/ <br>
-│
-│   │   ├── nasdaq100_prices.csv <br>
-│
-│   │   └── nasdaq_news_sentiment.csv <br>
-│
-│   └─ processed/ <br>
-│
-│       └── nasdaq100_ml_dataset.csv <br>
-│
-│
-├── nasdaq_analysis.ipynb <br>
-│
-├── train.ipynb <br>
-│
-├── train_lstm.ipynb <br>
-│
-├── predict.ipynb <br>
-│
-│
-├── train.py  <br>
-│
-├── train_lstm.py <br>
-│
-├── predict.py <br>
-│
-├── api.py <br>
-│
-│
-├── models/ <br>
-│ 
-│   ├── best_ml_model.pkl <br>
-│ 
-│   ├── scaler.pkl <br>
-│
-│   └── features.json <br>
-│
-│
-├── Dockerfile <br>
-│
-├── requirements.txt <br>
-│
-└── README.md
+## 📂 Repository Structure
 
+
+MLzoomcamp_Midterm2025/
+│
+├── data/
+│   ├── raw/
+│   │   ├── nasdaq100_prices.csv
+│   │   └── nasdaq_news_sentiment.csv
+│   └── processed/
+│       └── nasdaq100_ml_dataset.csv
+│
+├── nasdaq_analysis.ipynb
+├── train.ipynb
+├── train_lstm.ipynb
+├── predict.ipynb
+│
+├── train.py
+├── train_lstm.py
+├── predict.py
+├── api.py
+│
+├── models/
+│   ├── best_ml_model.pkl
+│   ├── scaler.pkl
+│   └── features.json
+│
+├── Dockerfile
+├── requirements.txt
+└── README.md
 
 ## Run Locally (Windows 11 + WSL Recommended)
 
