@@ -27,22 +27,34 @@ This repository includes:
 
 ---
 
-## 🎯 1. Problem Definition
+## 1. Problem Definition
 
-Financial markets evolve through different **market regimes** influenced by price dynamics, volatility, and investor sentiment.
+Financial markets change over time and move through different market regimes depending on trend, volatility, and investor behavior. Detecting these regimes is important for market analysis and risk management.
 
-The objective of this project is to build a machine learning system that classifies the **next-day market regime** of the NASDAQ-100 index into:
+Price-based indicators such as returns, moving averages, and volatility provide useful information, but they do not fully reflect the impact of market sentiment and financial news. For this reason, this project combines technical price indicators with aggregated news sentiment features to improve market regime detection.
 
-- **Bear market**
-- **Sideways market**
-- **Bull market**
+### Objective
 
-This system can be used for:
+The goal of this project is to build a supervised classification model that predicts the **next-day market regime** of the NASDAQ-100 index.
 
-- Market regime monitoring  
-- Risk management  
-- Strategy adaptation  
-- Educational and analytical purposes  
+Each trading day is classified into one of three regimes:
+
+- **Bear Market (0):** downward price movement  
+- **Sideways Market (1):** low or no clear trend  
+- **Bull Market (2):** upward price movement  
+
+The target is based on the next-day return, making the predictions forward-looking and suitable for real-world use.
+
+### Why Machine Learning?
+
+Market regime detection involves non-linear relationships, time dependencies, and noisy signals. Machine Learning models can learn complex patterns from:
+
+- Price indicators (returns, moving averages, volatility)
+- Trading activity (volume)
+- News sentiment indicators
+
+In addition to classical ML models, an **LSTM model** is tested to capture temporal patterns in the data.
+
 
 ---
 
