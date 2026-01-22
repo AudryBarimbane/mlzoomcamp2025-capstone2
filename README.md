@@ -350,12 +350,12 @@ All commands should be run inside Ubuntu (WSL).
 
 ### 3️⃣ Install dependencies
 
-pip install -r requirements.txt
+- pip install -r requirements.txt
 
 
 ### 4️⃣ Start FastAPI service
 
-python api.py
+- python api.py
 
 
 API available at:
