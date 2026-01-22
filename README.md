@@ -302,10 +302,12 @@ docker run -d -p 8000:8000 nasdaq-regime-api
 ## 📂 Repository Structure
 
 
-MLzoomcamp_Midterm2025/
+MLzoomcamp_Capstone2/
 │
 ├── data/
+
 │   ├── raw/
+
 │   │   ├── nasdaq100_prices.csv
 │   │   └── nasdaq_news_sentiment.csv
 │   └── processed/
