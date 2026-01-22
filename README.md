@@ -336,9 +336,11 @@ All commands should be run inside Ubuntu (WSL).
 
 ### 1️⃣ Clone the repository
 
-cd ~
-git clone https://github.com/AudryBarimbane/mlzoomcamp2025-capstone2.git
-cd mlzoomcamp2025-capstone2
+- cd ~ 
+
+- git clone https://github.com/AudryBarimbane/mlzoomcamp2025-capstone2.git
+
+- cd mlzoomcamp2025-capstone2
 
 ### 2️⃣ Create virtual environment
 
