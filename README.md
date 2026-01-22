@@ -309,7 +309,7 @@ MLzoomcamp_Midterm2025/<br>
 │
 │   │   └── nasdaq_news_sentiment.csv <br>
 │
-│   └── processed/ <br>
+│   └─ processed/ <br>
 │
 │       └── nasdaq100_ml_dataset.csv <br>
 │
