@@ -56,6 +56,7 @@ Two data sources are used:
 - Source: Historical NASDAQ-100 price data
 
 ### 📰 News Sentiment
+https://www.kaggle.com/datasets/enaa0o0/nasdaq-news-sentiment
 - File: `nasdaq_news_sentiment.csv`
 - Aggregated daily news sentiment indicators:
   - Average sentiment
