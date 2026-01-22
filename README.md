@@ -1,4 +1,4 @@
-# NASDAQ-100 Market Regime Prediction  
+# NASDAQ-100 Market Regime Prediction Using Price Indicators and Aggregated News Sentiment
 ** CAPSTONE 2 Project – MLZoomcamp 2025**
 
 ---
